@@ -12,6 +12,8 @@ class CalenderScreen extends StatelessWidget {
 
     DateTime selectedDate = DateTime.now();
 
+  CalenderScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
 
@@ -48,29 +50,27 @@ class CalenderScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Container(
-                          child: DatePicker(
-                            DateTime.now(),
-                            width: 60,
-                            height: 80,
-                            controller: AppBloc.get(context).controller,
-                            initialSelectedDate: selectedDate,
-                            selectionColor: Colors.green,
-                            selectedTextColor: Colors.white,
-                            onDateChange: (date) {
-                              selectedDate=date;
-                              AppBloc.get(context).selectDateString=DateFormat("yyyy-MM-dd").format(selectedDate);
-                              AppBloc.get(context).insertDataToSchedule();
+                        DatePicker(
+                          DateTime.now(),
+                          width: 60,
+                          height: 80,
+                          controller: AppBloc.get(context).controller,
+                          initialSelectedDate: selectedDate,
+                          selectionColor: Colors.green,
+                          selectedTextColor: Colors.white,
+                          onDateChange: (date) {
+                            selectedDate=date;
+                            AppBloc.get(context).selectDateString=DateFormat("yyyy-MM-dd").format(selectedDate);
+                            AppBloc.get(context).insertDataToSchedule();
 
 
 
-                              AppBloc.get(context).changeTimeOfCalender();
-                              AppBloc.get(context).dayController.text =
-                                  DateFormat('EEEE').format(date);
-                              AppBloc.get(context).dayMonthYearController.text =
-                                  DateFormat("dd MMMM, yyyy").format(date);
-                            },
-                          ),
+                            AppBloc.get(context).changeTimeOfCalender();
+                            AppBloc.get(context).dayController.text =
+                                DateFormat('EEEE').format(date);
+                            AppBloc.get(context).dayMonthYearController.text =
+                                DateFormat("dd MMMM, yyyy").format(date);
+                          },
                         ),
                       ],
                     ),

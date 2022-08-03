@@ -19,12 +19,11 @@ class AppBloc extends Cubit<AppStates>{
   bool value = false;
   var dayController = TextEditingController();
   var dayMonthYearController = TextEditingController();
-
-
   var titleController = TextEditingController();
   var dateController = TextEditingController();
   var startTimeController = TextEditingController();
   var endTimeController = TextEditingController();
+
 
   String selectedColor= "Color(0XFFFF9D42)";
 
@@ -59,13 +58,6 @@ class AppBloc extends Cubit<AppStates>{
     emit(ChangeSelectedColor());
   }
 
-  //
-  // bool isSelected = false;
-  // void  isSelectedBox ()
-  // {
-  // isSelected=! isSelected;
-  // emit(ChangeIsSelectedBox());
-  // }
 
 
 void changeTimeOfCalender()
@@ -73,16 +65,8 @@ void changeTimeOfCalender()
   emit(ChangeTimeOfCalender());
 }
 
-//  bool valueOfCheckBox = false;
-// void changeValueOfCheckBox()
-// {
-//   valueOfCheckBox=! valueOfCheckBox;
-//   emit(ChangeValueOfCheckBox());
-//
-// }
 
 
-String selectDateString = '';
 
 
   late Database database;
@@ -130,10 +114,6 @@ String selectDateString = '';
 
 
 
-
-
-
-
   void insertUsersData({
     String? remind,
     String? repeat,
@@ -157,8 +137,7 @@ String selectDateString = '';
   }
 
 
-  void getUsersData( )
-  {
+  void getUsersData( ) {
 
     database.rawQuery('SELECT * FROM newTodoTask').then((value) {
       allTasks.clear();
@@ -187,11 +166,11 @@ String selectDateString = '';
 
 
 
-
   List <Map> calender = [];
-  void insertDataToSchedule(
+  String selectDateString = '';
 
-  ){
+
+  void insertDataToSchedule(){
 
     database.rawQuery('SELECT * FROM newTodoTask  WHERE date =?' , [selectDateString])
         .then((value) {
@@ -203,7 +182,8 @@ String selectDateString = '';
 
   bool favorite = false;
 
-  void updateFavorite({required String favoriteStatus, required int id,}) async
+  void updateFavorite(
+      {required String favoriteStatus, required int id,}) async
   {
    await database.rawUpdate(
       'UPDATE newTodoTask SET favorite = ? WHERE id = $id', [favoriteStatus]).then((value) {

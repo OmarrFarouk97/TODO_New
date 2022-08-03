@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/unit/blocs/app/cubit.dart';
 import '../../../../core/unit/blocs/app/states.dart';
 import '../../../../core/unit/notification/notification.dart';
 import '../../../../utils/styles/icon_broken.dart';
-import '../../../shared_widgaets/input_field.dart';
 import 'package:intl/intl.dart';
-import '../../../shared_widgaets/my_buttom.dart';
+import '../../../shared_widgets/input_field.dart';
+import '../../../shared_widgets/my_buttom.dart';
 
 class AddTaskScreen extends StatelessWidget {
   DateTime selectedDateTime = DateTime.now();
+
+  AddTaskScreen({Key? key}) : super(key: key);
 
   List<DropdownMenuItem<String>> get remindItmes {
     List<DropdownMenuItem<String>> remindMenuItems = [
@@ -26,8 +27,6 @@ class AddTaskScreen extends StatelessWidget {
     ];
     return remindMenuItems;
   }
-
-  //var remind = "none";
 
 
   List<DropdownMenuItem<String>> get repeatItmes {
@@ -339,12 +338,12 @@ class AddTaskScreen extends StatelessWidget {
                               },
                               child: CircleAvatar(
                                   radius: 14,
-                                  backgroundColor: Color(0XFFFF9D42),
+                                  backgroundColor: const Color(0XFFFF9D42),
                                   child: Icon(
                                     Icons.done,
                                     color: AppBloc.get(context).firstSelectedColor
                                         ?Colors.white
-                                        : Color(0XFFFF9D42),
+                                        : const Color(0XFFFF9D42),
                                     size: 16,
                                   )),
                             ),
@@ -357,12 +356,12 @@ class AddTaskScreen extends StatelessWidget {
                               },
                               child: CircleAvatar(
                                   radius: 14,
-                                  backgroundColor: Color(0XFFff5147),
+                                  backgroundColor: const Color(0XFFff5147),
                                   child: Icon(
                                     Icons.done,
                                     color: AppBloc.get(context).secondSelectedColor
                                         ?Colors.white
-                                        : Color(0XFFff5147),
+                                        : const Color(0XFFff5147),
                                     size: 16,
                                   )),
                             ),
@@ -374,12 +373,12 @@ class AddTaskScreen extends StatelessWidget {
                               },
                               child: CircleAvatar(
                                   radius: 14,
-                                  backgroundColor: Color(0XFF42a0ff),
+                                  backgroundColor: const Color(0XFF42a0ff),
                                   child: Icon(
                                     Icons.done,
                                     color: AppBloc.get(context).thirdSelectedColor
                                         ? Colors.white
-                                        : Color(0XFF42a0ff),
+                                        : const Color(0XFF42a0ff),
                                     size: 16,
                                   )),
                             ),
@@ -399,7 +398,7 @@ class AddTaskScreen extends StatelessWidget {
                                         .endTimeController
                                         .text);
                                 var myTime = DateFormat('HH:mm').format(
-                                    date.subtract(Duration(minutes: 1)));
+                                    date.subtract(const Duration(minutes: 1)));
                                 int year = int.parse(AppBloc
                                     .get(context)
                                     .dateController
@@ -437,7 +436,7 @@ class AddTaskScreen extends StatelessWidget {
                                 var date = DateFormat.jm().parse(
                                     AppBloc.get(context).endTimeController.text);
                                 var myTime = DateFormat('HH:mm').format(
-                                    date.subtract(Duration(minutes: 10)));
+                                    date.subtract(const Duration(minutes: 10)));
                                 int year = int.parse(AppBloc.get(context).dateController.text.split('-')[0]);
                                 int month = int.parse(AppBloc.get(context).dateController.text.split('-')[1]);
                                 int day = int.parse(AppBloc.get(context).dateController.text.split('-')[2]);
@@ -459,7 +458,7 @@ class AddTaskScreen extends StatelessWidget {
                                 var date = DateFormat.jm().parse(
                                     AppBloc.get(context).endTimeController.text);
                                 var myTime = DateFormat('HH:mm').format(
-                                    date.subtract(Duration(minutes: 30)));
+                                    date.subtract(const Duration(minutes: 30)));
                                 int year = int.parse(AppBloc.get(context).dateController.text.split('-')[0]);
                                 int month = int.parse(AppBloc.get(context).dateController.text.split('-')[1]);
                                 int day = int.parse(AppBloc.get(context).dateController.text.split('-')[2]);
@@ -481,7 +480,7 @@ class AddTaskScreen extends StatelessWidget {
                                 var date = DateFormat.jm().parse(
                                     AppBloc.get(context).endTimeController.text);
                                 var myTime = DateFormat('HH:mm').format(
-                                    date.subtract(Duration(hours: 1)));
+                                    date.subtract(const Duration(hours: 1)));
                                 int year = int.parse(AppBloc.get(context).dateController.text.split('-')[0]);
                                 int month = int.parse(AppBloc.get(context).dateController.text.split('-')[1]);
                                 int day = int.parse(AppBloc.get(context).dateController.text.split('-')[2]);
@@ -503,7 +502,7 @@ class AddTaskScreen extends StatelessWidget {
                               var date = DateFormat.jm().parse(
                               AppBloc.get(context).endTimeController.text);
                               var myTime = DateFormat('HH:mm').format(
-                              date.subtract(Duration(days: 1)));
+                              date.subtract(const Duration(days: 1)));
                               int year = int.parse(AppBloc.get(context).dateController.text.split('-')[0]);
                               int month = int.parse(AppBloc.get(context).dateController.text.split('-')[1]);
                               int day = int.parse(AppBloc.get(context).dateController.text.split('-')[2]);
