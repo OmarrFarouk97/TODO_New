@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../todo_tabs_widgets/all_screen.dart';
+import '../../todo_tabs_widgets/completed_screen.dart';
+import '../../todo_tabs_widgets/favorite_screen.dart';
+import '../../todo_tabs_widgets/uncompleted_screen.dart';
 
-import '../../todo_tabs_screen/all_screen.dart';
-import '../../todo_tabs_screen/completed_screen.dart';
-import '../../todo_tabs_screen/favorite_screen.dart';
-import '../../todo_tabs_screen/uncompleted_screen.dart';
+
 
 class TodoWidget extends StatefulWidget {
   const TodoWidget({Key? key}) : super(key: key);

@@ -9,7 +9,8 @@ class UserItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+      Container(
       height: 80,
       width: double.infinity,
       clipBehavior: Clip.antiAliasWithSaveLayer,
