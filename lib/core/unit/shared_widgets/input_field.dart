@@ -5,7 +5,7 @@ class InputField extends StatelessWidget {
   final String? title ;
   final String hint ;
   final TextEditingController? controller;
-  final TextInputType type;
+  final TextInputType? type;
   final Widget? suffix;
    bool isPassword =false;
   final Function()? onTab;
@@ -17,7 +17,7 @@ class InputField extends StatelessWidget {
      this.title,
     required this.hint,
     required this.controller,
-    required this.type,
+     this.type,
      this.suffix,
     this.onTab,
      this.width,

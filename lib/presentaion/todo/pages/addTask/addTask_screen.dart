@@ -160,7 +160,7 @@ class AddTaskScreen extends StatelessWidget {
                                     return null;
                                   },
                                   width: double.infinity,
-                                  type: TextInputType.datetime,
+                                 // type: TextInputType.datetime,
                                   hint: DateFormat("hh:mm a").format(selectedDateTime),
                                   controller: AppBloc.get(context).startTimeController,
                                   suffix: const Icon(
